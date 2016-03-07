@@ -19,11 +19,11 @@ extern "C" {
 /* Version numbers */
 #define BLOSC_VERSION_MAJOR    1    /* for major interface/format changes  */
 #define BLOSC_VERSION_MINOR    7    /* for minor interface/format changes  */
-#define BLOSC_VERSION_RELEASE  1    /* for tweaks, bug-fixes, or development */
+#define BLOSC_VERSION_RELEASE  2    /* for tweaks, bug-fixes, or development */
 
-#define BLOSC_VERSION_STRING   "1.7.1.dev"  /* string version.  Sync with above! */
+#define BLOSC_VERSION_STRING   "1.7.2.dev"  /* string version.  Sync with above! */
 #define BLOSC_VERSION_REVISION "$Rev$"   /* revision version */
-#define BLOSC_VERSION_DATE     "$Date:: 2015-07-05 #$"    /* date version */
+#define BLOSC_VERSION_DATE     "$Date:: 2016-02-03 #$"    /* date version */
 
 #define BLOSCLZ_VERSION_STRING "1.0.5"   /* the internal compressor version */
 
@@ -71,7 +71,7 @@ extern "C" {
 #define BLOSC_SNAPPY_COMPNAME    "snappy"
 #define BLOSC_ZLIB_COMPNAME      "zlib"
 
-/* Codes for the different compression libraries shipped with Blosc */
+/* Codes for compression libraries shipped with Blosc (code must be < 8) */
 #define BLOSC_BLOSCLZ_LIB   0
 #define BLOSC_LZ4_LIB       1
 #define BLOSC_SNAPPY_LIB    2
@@ -83,7 +83,7 @@ extern "C" {
 #define BLOSC_SNAPPY_LIBNAME    "Snappy"
 #define BLOSC_ZLIB_LIBNAME      "Zlib"
 
-/* The codes for compressor formats shipped with Blosc (code must be < 8) */
+/* The codes for compressor formats shipped with Blosc */
 #define BLOSC_BLOSCLZ_FORMAT  BLOSC_BLOSCLZ_LIB
 #define BLOSC_LZ4_FORMAT      BLOSC_LZ4_LIB
     /* LZ4HC and LZ4 share the same format */

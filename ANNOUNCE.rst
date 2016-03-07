@@ -1,16 +1,16 @@
 ===============================================================
- Announcing c-blosc 1.7.1
+ Announcing c-blosc 1.7.2
  A blocking, shuffling and lossless compression library for C
 ===============================================================
 
 What is new?
 ============
 
-#XXX version-specific blurb XXX#
+  #XXX version-specific blurb XXX#
 
 For more info, please see the release notes in:
 
-https://github.com/Blosc/c-blosc/wiki/Release-notes
+https://github.com/Blosc/c-blosc/blob/master/RELEASE_NOTES.rst
 
 
 What is it?
