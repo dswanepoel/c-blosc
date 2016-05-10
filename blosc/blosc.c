@@ -1825,18 +1825,22 @@ void blosc_set_blocksize(size_t size)
 
 void blosc_init(void)
 {
-  pthread_mutex_init(&global_comp_mutex, NULL);
-  g_global_context = (struct blosc_context*)my_malloc(sizeof(struct blosc_context));
-  g_global_context->threads_started = 0;
-  g_initlib = 1;
+  if (!g_initlib) {
+    pthread_mutex_init(&global_comp_mutex, NULL);
+    g_global_context = (struct blosc_context*)my_malloc(sizeof(struct blosc_context));
+    g_global_context->threads_started = 0;
+    g_initlib = 1;
+  }
 }
 
 void blosc_destroy(void)
 {
-  g_initlib = 0;
-  blosc_release_threadpool(g_global_context);
-  my_free(g_global_context);
-  pthread_mutex_destroy(&global_comp_mutex);
+  if (g_initlib) {
+    g_initlib = 0;
+    blosc_release_threadpool(g_global_context);
+    my_free(g_global_context);
+    pthread_mutex_destroy(&global_comp_mutex);
+  }
 }
 
 int blosc_release_threadpool(struct blosc_context* context)
